@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LookPass" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://addons/tk_look/post/look_pass.gd" id="1_pass"]
+[ext_resource type="Shader" path="res://addons/tk_look/shaders/post_quantise.gdshader" id="2_quantise"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_quantise"]
+shader = ExtResource("2_quantise")
+
+[resource]
+script = ExtResource("1_pass")
+material = SubResource("ShaderMaterial_quantise")

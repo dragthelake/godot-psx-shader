@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3]
+
+[sub_resource type="Environment" id="env"]
+background_mode = 1
+background_color = Color(0.227451, 0.266667, 0.4, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.36, 0.38, 0.46, 1)
+
+[sub_resource type="StandardMaterial3D" id="ground_mat"]
+albedo_color = Color(0.45, 0.4, 0.32, 1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="ground"]
+size = Vector3(60, 0.2, 60)
+
+[sub_resource type="StandardMaterial3D" id="red"]
+albedo_color = Color(0.8, 0.2, 0.18, 1)
+
+[sub_resource type="BoxMesh" id="box"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="teal"]
+albedo_color = Color(0.2, 0.65, 0.6, 1)
+
+[sub_resource type="SphereMesh" id="ball"]
+radial_segments = 12
+rings = 6
+
+[sub_resource type="StandardMaterial3D" id="stone"]
+albedo_color = Color(0.6, 0.6, 0.65, 1)
+
+[sub_resource type="BoxMesh" id="pillar"]
+size = Vector3(1, 5, 1)
+
+[node name="PlainScene" type="Node3D"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("env")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 8, 0)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.966, 0.259, 0, -0.259, 0.966, 0, 2.5, 6)
+fov = 60.0
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -20)
+mesh = SubResource("ground")
+surface_material_override/0 = SubResource("ground_mat")
+
+[node name="Box" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707, 0, 0.707, 0, 1, 0, -0.707, 0, 0.707, -1.6, 0.75, 0)
+mesh = SubResource("box")
+surface_material_override/0 = SubResource("red")
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.5, 0.5)
+mesh = SubResource("ball")
+surface_material_override/0 = SubResource("teal")
+
+[node name="Pillar1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, -8)
+mesh = SubResource("pillar")
+surface_material_override/0 = SubResource("stone")
+
+[node name="Pillar2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, -8)
+mesh = SubResource("pillar")
+surface_material_override/0 = SubResource("stone")
+
+[node name="Pillar3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.5, -20)
+mesh = SubResource("pillar")
+surface_material_override/0 = SubResource("stone")
+
+[node name="Pillar4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, -20)
+mesh = SubResource("pillar")
+surface_material_override/0 = SubResource("stone")

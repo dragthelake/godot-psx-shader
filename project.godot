@@ -1,0 +1,108 @@
+; Engine configuration file.
+; Godot 4.7, Compatibility renderer.
+
+config_version=5
+
+[application]
+
+config/name="PSX Shader"
+config/description="The PSX look for Godot 4: vertex snap, affine textures, vertex lighting, per-vertex fog, draw distance, 15-bit colour with dither."
+run/main_scene="res://demo/demo.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[autoload]
+
+TKLook="*res://addons/tk_look/tk_look.gd"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+window/stretch/scale_mode="integer"
+
+[toolkit]
+
+look/internal_resolution=Vector2i(320, 240)
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/default_filters/anisotropic_filtering_level=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+
+[shader_globals]
+
+look_colour_levels={
+"type": "float",
+"value": 32.0
+}
+look_dither_strength={
+"type": "float",
+"value": 1.0
+}
+look_bayer_size={
+"type": "int",
+"value": 4
+}
+look_crt_curvature={
+"type": "float",
+"value": 0.05
+}
+look_crt_scanline={
+"type": "float",
+"value": 0.6
+}
+look_crt_mask={
+"type": "float",
+"value": 0.3
+}
+look_crt_bloom={
+"type": "float",
+"value": 0.4
+}
+look_crt_vignette={
+"type": "float",
+"value": 0.3
+}
+psx_snap_resolution={
+"type": "vec2",
+"value": Vector2(320.0, 240.0)
+}
+psx_affine={
+"type": "bool",
+"value": true
+}
+psx_fog_colour={
+"type": "color",
+"value": Color(0.227451, 0.2666667, 0.4, 1.0)
+}
+psx_fog_start={
+"type": "float",
+"value": 6.0
+}
+psx_fog_end={
+"type": "float",
+"value": 30.0
+}
+psx_draw_distance={
+"type": "float",
+"value": 40.0
+}
+psx_texture_lod_distance={
+"type": "float",
+"value": 12.0
+}
+pixel_palette_dither={
+"type": "float",
+"value": 0.05
+}
+pixel_outline_colour={
+"type": "color",
+"value": Color(0.0941176, 0.0784314, 0.145098, 1.0)
+}
