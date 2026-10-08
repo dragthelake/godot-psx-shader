@@ -53,6 +53,10 @@ TKPsx.reset()     # back to the defaults
 
 `addons/tk_psx/README.md` covers everything in detail: water (`PsxWater3D`), particles (`TKPsx.burst`), blob shadows (`TKPsx.add_blob_shadow`), the sky (`PsxSkyMaterial`), dissolve (`TKPsx.dissolve`) and x-ray (`TKPsx.set_xray`). It mentions toolkit scripts and tests that are not in this package; ignore those parts.
 
+## Licence
+
+MIT, see `LICENSE`. Third-party parts keep their own licences, listed below.
+
 ## Credits
 
 Parts of the vertex snap, affine mapping, fog and draw distance come from [Ultimate Retro Shader Collection](https://github.com/Zorochase/ultimate-retro-shader-collection) (MIT). Screen transitions in `tk_look` are from Universal Transition Shader (CC0). See `addons/tk_psx/THIRD_PARTY.md` and `addons/tk_look/THIRD_PARTY.md`.
