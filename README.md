@@ -6,16 +6,28 @@ Built for the **Compatibility** renderer (Project Settings > Rendering > Rendere
 
 ## Try it
 
-Open this folder in Godot 4.7 and press Play. Keys 1 to 6 switch between demos; Space turns the look on and off in demos 1 and 6.
+Open this folder in Godot 4.7 and press Play. Keys 1 to 6 switch demos, and everything runs live.
 
 | Key | Demo |
 |---|---|
 | 1 | PSX look: vertex snap, affine floor, fog, pop-in, dither, vertex lights |
 | 2 | Water |
-| 3 | Particles |
+| 3 | Particles (one-shot effects replay every 1.5 s) |
 | 4 | Sky (M swaps gradient and panorama) |
 | 5 | Dissolve and x-ray |
-| 6 | An ordinary scene with StandardMaterial3D, made PSX by `PsxScreen` |
+| 6 | An ordinary scene with StandardMaterial3D and 512 px textures, made PSX by `PsxScreen` |
+
+L steps up the look ladder and Shift+L back down. It starts on Full PSX.
+
+| Step | Resolution | Textures | PSX surfaces | 15-bit colour |
+|---|---|---|---|---|
+| Modern | window, filling it | as made | off | off |
+| Hi-res PSX | window, filling it | as made | on | on |
+| Hi-res PSX, crunchy textures | window, filling it | 256 px | on | on |
+| Mid PSX | 640x480 | 256 px | on | on |
+| Full PSX | 320x240 | 256 px | on | on |
+
+Vertex snap stays on its 320x240 grid at every resolution, so the hi-res steps still wobble. In demo 6, Modern puts the scene's original StandardMaterial3D materials back; the labs are built from PSX materials, so there Modern turns their effects off instead. The ladder is `demo/demo.gd`.
 
 ## Put it in your own project
 

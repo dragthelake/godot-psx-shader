@@ -10,6 +10,8 @@ extends Control
 var viewport: SubViewport
 var post: LookPost
 var world: Node
+## Each original StandardMaterial3D -> the PsxMaterial3D that replaced it.
+var materials := {}
 
 
 func _ready() -> void:
@@ -32,7 +34,7 @@ func _ready() -> void:
 	if scene:
 		world = scene.instantiate()
 		viewport.add_child(world)
-		TKPsx.convert_materials(world)
+		TKPsx.convert_materials(world, 2.0, materials)
 
 
 func _exit_tree() -> void:
@@ -47,3 +49,21 @@ func set_psx(on: bool) -> void:
 	else:
 		TKPsx.disable()
 	post.active = on
+
+
+## Puts the scene's original materials back (true), or the PSX ones (false). Sprites keep
+## the PSX sprite shader.
+func set_standard_materials(on: bool) -> void:
+	var swap := {}
+	for standard in materials:
+		if on:
+			swap[materials[standard]] = standard
+		else:
+			swap[standard] = materials[standard]
+	for mi: MeshInstance3D in world.find_children("*", "MeshInstance3D", true, false):
+		if swap.has(mi.material_override):
+			mi.material_override = swap[mi.material_override]
+		for i in mi.get_surface_override_material_count():
+			var m := mi.get_surface_override_material(i)
+			if swap.has(m):
+				mi.set_surface_override_material(i, swap[m])

@@ -1,4 +1,6 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://demo/plain_scene.gd" id="1_plain"]
 
 [sub_resource type="Environment" id="env"]
 background_mode = 1
@@ -8,6 +10,7 @@ ambient_light_color = Color(0.36, 0.38, 0.46, 1)
 
 [sub_resource type="StandardMaterial3D" id="ground_mat"]
 albedo_color = Color(0.45, 0.4, 0.32, 1)
+uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -34,6 +37,7 @@ albedo_color = Color(0.6, 0.6, 0.65, 1)
 size = Vector3(1, 5, 1)
 
 [node name="PlainScene" type="Node3D"]
+script = ExtResource("1_plain")
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("env")
